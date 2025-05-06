@@ -8,7 +8,7 @@ st.set_page_config(page_title="📊 E-Commerce Dashboard", layout="wide")
 # --- Load Data ---
 @st.cache_data
 def load_data():
-    df = pd.read_csv("main_data.csv", parse_dates=["order_purchase_timestamp"])
+    df = pd.read_csv("dashboard/main_data.csv", parse_dates=["order_purchase_timestamp"])
     df['month'] = df['order_purchase_timestamp'].dt.to_period('M').dt.to_timestamp()
     df['year'] = df['order_purchase_timestamp'].dt.year
     df['month_name'] = df['order_purchase_timestamp'].dt.strftime('%B')
